@@ -1,4 +1,4 @@
-package data
+package com.regadera.regapasswordmanagerfoss.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

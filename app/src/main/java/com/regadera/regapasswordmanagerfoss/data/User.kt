@@ -1,4 +1,4 @@
-package data
+package com.regadera.regapasswordmanagerfoss.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

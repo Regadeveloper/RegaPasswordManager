@@ -1,4 +1,4 @@
-package data
+package com.regadera.regapasswordmanagerfoss.data
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

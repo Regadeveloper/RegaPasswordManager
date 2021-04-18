@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginPageVC">
+
+    <activity
+        android:id="@+id/loginPageVC"
+        android:name="com.regadera.regapasswordmanagerfoss.LoginPageVC"
+        android:label="login_page"
+        tools:layout="@layout/login_page" />
+    <fragment
+        android:id="@+id/logsList"
+        android:name="com.regadera.regapasswordmanagerfoss.fragments.list.logsList"
+        android:label="fragment_logs_list"
+        tools:layout="@layout/fragment_logs_list" >
+        <action
+            android:id="@+id/action_logsList_to_loginPageVC"
+            app:destination="@id/loginPageVC" />
+        <action
+            android:id="@+id/action_logsList_to_logsAdd"
+            app:destination="@id/logsAdd" />
+    </fragment>
+    <fragment
+        android:id="@+id/logsAdd"
+        android:name="com.regadera.regapasswordmanagerfoss.fragments.add.logsAdd"
+        android:label="fragment_logs_add"
+        tools:layout="@layout/fragment_logs_add" >
+        <action
+            android:id="@+id/action_logsAdd_to_logsList"
+            app:destination="@id/logsList" />
+    </fragment>
+</navigation>

@@ -4,13 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlin.math.log
+import com.regadera.regapasswordmanagerfoss.fragments.list.logsList
 
 class LoginPageVC : AppCompatActivity() {
     lateinit var password : String
@@ -56,7 +54,7 @@ class LoginPageVC : AppCompatActivity() {
 
         loginButton.setOnClickListener(){
             Toast.makeText(this, "esta es la password:" + password, Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, MainView::class.java)
+            val intent = Intent(this, logsList::class.java)
             startActivity(intent)
         }
 

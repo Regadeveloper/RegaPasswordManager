@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RegaPasswordManagerFOSS">
-        <activity android:name=".MainView"></activity>
         <activity android:name=".LoginPageVC">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
