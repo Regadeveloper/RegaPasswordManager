@@ -8,5 +8,6 @@ class LogsList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.logs_list)
+
     }
 }
