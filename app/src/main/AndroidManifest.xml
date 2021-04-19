@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RegaPasswordManagerFOSS">
+        <activity android:name=".modules.add.LogsAdd"></activity>
+        <activity android:name=".modules.list.LogsList" />
         <activity android:name=".LoginPageVC">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

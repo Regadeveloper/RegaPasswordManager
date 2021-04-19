@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.regadera.regapasswordmanagerfoss.fragments.list.logsList
+import com.regadera.regapasswordmanagerfoss.modules.list.LogsList
 
 class LoginPageVC : AppCompatActivity() {
     lateinit var password : String
@@ -54,7 +54,7 @@ class LoginPageVC : AppCompatActivity() {
 
         loginButton.setOnClickListener(){
             Toast.makeText(this, "esta es la password:" + password, Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, logsList::class.java)
+            val intent = Intent(this, LogsList::class.java)
             startActivity(intent)
         }
 

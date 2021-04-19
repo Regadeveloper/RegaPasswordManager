@@ -12,7 +12,7 @@
         tools:layout="@layout/login_page" />
     <fragment
         android:id="@+id/logsList"
-        android:name="com.regadera.regapasswordmanagerfoss.fragments.list.logsList"
+        android:name="com.regadera.regapasswordmanagerfoss.modules.list.logsList"
         android:label="fragment_logs_list"
         tools:layout="@layout/fragment_logs_list" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/logsAdd"
-        android:name="com.regadera.regapasswordmanagerfoss.fragments.add.logsAdd"
+        android:name="com.regadera.regapasswordmanagerfoss.modules.add.logsAdd"
         android:label="fragment_logs_add"
         tools:layout="@layout/fragment_logs_add" >
         <action
