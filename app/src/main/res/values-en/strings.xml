@@ -3,4 +3,8 @@
     <string name="user_hint">Username: </string>
     <string name="password_hint">Password: </string>
     <string name="login_btn">Log in</string>
+    <string name="new_user_sign">User created</string>
+    <string name="logged_in">Logged in</string>
+    <string name="empty_username">Add a username</string>
+    <string name="empty_password">Add a valid password</string>
 </resources>

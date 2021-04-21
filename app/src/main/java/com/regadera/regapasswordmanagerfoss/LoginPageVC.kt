@@ -8,12 +8,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import com.regadera.regapasswordmanagerfoss.modules.list.LogsList
+import com.regadera.regapasswordmanagerfoss.modules.list.LogsLists
 
 class LoginPageVC : AppCompatActivity() {
-    lateinit var password : String
-    lateinit var username : String
+    var password = ""
+    var username = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,8 +53,13 @@ class LoginPageVC : AppCompatActivity() {
 
 
         loginButton.setOnClickListener(){
-            Toast.makeText(this, "esta es la password:" + password, Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this, LogsList::class.java))
+            if (password.isNotEmpty() && username.isNotEmpty()){
+                Toast.makeText(this, "esta es la password:" + password, Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, LogsLists::class.java))
+            }
+            else{
+                Toast.makeText(this, "Pon Password", Toast.LENGTH_SHORT).show()
+            }
         }
 
     }

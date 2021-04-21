@@ -3,6 +3,9 @@
     <string name="user_hint">Usuario: </string>
     <string name="password_hint">Contraseña: </string>
     <string name="login_btn">Iniciar sesión</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_user_sign">Usuario creado</string>
+    <string name="logged_in">Sesión iniciada</string>
+    <string name="empty_username">Introduce un nombre de usuario</string>
+    <string name="empty_password">Introduce una contraseña válida</string>
+
 </resources>
