@@ -7,5 +7,6 @@
     <string name="logged_in">Sesión iniciada</string>
     <string name="empty_username">Introduce un nombre de usuario</string>
     <string name="empty_password">Introduce una contraseña válida</string>
+    <string name="add_new_log">Añadir</string>
 
 </resources>
