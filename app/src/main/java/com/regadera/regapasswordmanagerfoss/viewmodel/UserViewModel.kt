@@ -1,15 +1,18 @@
-package com.regadera.regapasswordmanagerfoss.data
+package com.regadera.regapasswordmanagerfoss.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.regadera.regapasswordmanagerfoss.data.UserDatabase
+import com.regadera.regapasswordmanagerfoss.repository.UserRepository
+import com.regadera.regapasswordmanagerfoss.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class UserViewModel (application: Application): AndroidViewModel(application) {
 
-    private val readData: LiveData<List<User>>
+    val readData: LiveData<List<User>>
     private val repository: UserRepository
 
     init {

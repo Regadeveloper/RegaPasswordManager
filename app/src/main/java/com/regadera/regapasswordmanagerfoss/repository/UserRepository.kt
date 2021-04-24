@@ -1,7 +1,10 @@
-package com.regadera.regapasswordmanagerfoss.data
+package com.regadera.regapasswordmanagerfoss.repository
 
 
 import androidx.lifecycle.LiveData
+import com.regadera.regapasswordmanagerfoss.data.UserDaoInterface
+import com.regadera.regapasswordmanagerfoss.model.User
+
 class UserRepository (private val userDao : UserDaoInterface) {
 
     val readData: LiveData<List<User>> = userDao.readData()

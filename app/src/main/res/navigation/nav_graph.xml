@@ -10,25 +10,19 @@
         android:name="com.regadera.regapasswordmanagerfoss.LoginPageVC"
         android:label="login_page"
         tools:layout="@layout/login_page" />
-    <fragment
-        android:id="@+id/logsList"
-        android:name="com.regadera.regapasswordmanagerfoss.modules.list.logsList"
-        android:label="fragment_logs_list"
-        tools:layout="@layout/fragment_logs_list" >
-        <action
-            android:id="@+id/action_logsList_to_loginPageVC"
-            app:destination="@id/loginPageVC" />
-        <action
-            android:id="@+id/action_logsList_to_logsAdd"
-            app:destination="@id/logsAdd" />
-    </fragment>
-    <fragment
+    <activity
+        android:id="@+id/updateVC"
+        android:name="com.regadera.regapasswordmanagerfoss.modules.update.UpdateVC"
+        android:label="logs_update"
+        tools:layout="@layout/logs_update" />
+    <activity
         android:id="@+id/logsAdd"
-        android:name="com.regadera.regapasswordmanagerfoss.modules.add.logsAdd"
-        android:label="fragment_logs_add"
-        tools:layout="@layout/fragment_logs_add" >
-        <action
-            android:id="@+id/action_logsAdd_to_logsList"
-            app:destination="@id/logsList" />
-    </fragment>
+        android:name="com.regadera.regapasswordmanagerfoss.modules.add.LogsAdd"
+        android:label="logs_add"
+        tools:layout="@layout/logs_add" />
+    <activity
+        android:id="@+id/logsLists"
+        android:name="com.regadera.regapasswordmanagerfoss.modules.list.LogsLists"
+        android:label="logs_lists"
+        tools:layout="@layout/logs_lists" />
 </navigation>

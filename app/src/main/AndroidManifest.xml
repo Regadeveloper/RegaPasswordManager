@@ -9,15 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RegaPasswordManagerFOSS">
-        <activity android:name=".modules.add.LogsAdd"
-            android:windowSoftInputMode="adjustResize"
-            ></activity>
-        <activity android:name=".modules.list.LogsLists"
-            android:windowSoftInputMode="adjustResize"
-            />
-        <activity android:name=".LoginPageVC"
-            android:windowSoftInputMode="adjustResize"
-            >
+        <activity android:name=".modules.update.UpdateVC"></activity>
+        <activity
+            android:name=".modules.add.LogsAdd"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".modules.list.LogsLists"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".LoginPageVC"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

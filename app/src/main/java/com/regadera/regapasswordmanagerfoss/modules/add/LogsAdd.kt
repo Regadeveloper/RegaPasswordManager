@@ -11,11 +11,10 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.regadera.regapasswordmanagerfoss.R
-import com.regadera.regapasswordmanagerfoss.data.User
-import com.regadera.regapasswordmanagerfoss.data.UserViewModel
+import com.regadera.regapasswordmanagerfoss.model.User
+import com.regadera.regapasswordmanagerfoss.viewmodel.UserViewModel
 import com.regadera.regapasswordmanagerfoss.databinding.LogsAddBinding
 import com.regadera.regapasswordmanagerfoss.modules.list.LogsLists
-import java.util.regex.Pattern
 
 class LogsAdd : AppCompatActivity() {
 
