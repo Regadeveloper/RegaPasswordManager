@@ -14,7 +14,11 @@
         android:id="@+id/updateVC"
         android:name="com.regadera.regapasswordmanagerfoss.modules.update.UpdateVC"
         android:label="logs_update"
-        tools:layout="@layout/logs_update" />
+        tools:layout="@layout/logs_update" >
+        <argument
+            android:name="currentUser"
+            app:argType="com.regadera.regapasswordmanagerfoss.model.User" />
+    </activity>
     <activity
         android:id="@+id/logsAdd"
         android:name="com.regadera.regapasswordmanagerfoss.modules.add.LogsAdd"

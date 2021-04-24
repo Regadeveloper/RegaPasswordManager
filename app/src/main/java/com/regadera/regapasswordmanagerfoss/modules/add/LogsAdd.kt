@@ -90,9 +90,9 @@ class LogsAdd : AppCompatActivity() {
     private fun insertDataToDatabase(){
         val user = User(0, username, password, webAppNAme)
         mUserViewModel.addUser(user = user)
-        Toast.makeText(this, "Succesfully added user ${user.userName}," +
-                " with password ${user.mainPassword}" +
-                "  to the web/app ${user.siteApp}", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Succesfully added user: ${user.userName}," +
+                " with password: ${user.mainPassword}" +
+                "  for the site: ${user.siteApp}", Toast.LENGTH_LONG).show()
         val intent = Intent(this, LogsLists::class.java)
         startActivity(intent)
     }
