@@ -7,5 +7,6 @@ data class User (
     @PrimaryKey(autoGenerate = true)
     val id : Int,
     val userName: String,
-    val mainPassword: String
+    val mainPassword: String,
+    val siteApp : String
     )

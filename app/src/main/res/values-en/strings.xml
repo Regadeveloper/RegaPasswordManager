@@ -8,4 +8,6 @@
     <string name="empty_username">Add a username</string>
     <string name="empty_password">Add a valid password</string>
     <string name="add_new_log">Add</string>
+    <string name="web_app_hint">Web/App name</string>
+    <string name="empty_web_app_name">Add the name of the web/app</string>
 </resources>

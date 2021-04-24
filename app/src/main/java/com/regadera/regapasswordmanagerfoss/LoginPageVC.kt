@@ -1,22 +1,30 @@
 package com.regadera.regapasswordmanagerfoss
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.regadera.regapasswordmanagerfoss.databinding.LoginPageBinding
+import com.regadera.regapasswordmanagerfoss.databinding.LogsAddBinding
 import com.regadera.regapasswordmanagerfoss.modules.list.LogsLists
 
 class LoginPageVC : AppCompatActivity() {
     var password = ""
     var username = ""
+    private lateinit var binding: LoginPageBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login_page)
+        binding = LoginPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val loginButton: Button = findViewById<Button>(R.id.btnLogin)
         var eUsername = findViewById<EditText>(R.id.etUsername)
         var ePassword = findViewById<EditText>(R.id.etPassword)
@@ -53,14 +61,25 @@ class LoginPageVC : AppCompatActivity() {
 
 
         loginButton.setOnClickListener(){
+            closeKeyboard(binding.root)
+
             if (password.isNotEmpty() && username.isNotEmpty()){
-                Toast.makeText(this, "esta es la password:" + password, Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, LogsLists::class.java))
             }
             else{
-                Toast.makeText(this, "Pon Password", Toast.LENGTH_SHORT).show()
+                if (password.isEmpty()){
+                    binding.etPassword.error = getString(R.string.empty_password)
+                }
+                if (username.isEmpty()){
+                    binding.etUsername.error = getString(R.string.empty_username)
+                }
             }
         }
 
+    }
+
+    private fun closeKeyboard(view: View){
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE)as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

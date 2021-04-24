@@ -8,5 +8,7 @@
     <string name="empty_username">Introduce un nombre de usuario</string>
     <string name="empty_password">Introduce una contraseña válida</string>
     <string name="add_new_log">Añadir</string>
+    <string name="web_app_hint">Nombre de la App o Web</string>
+    <string name="empty_web_app_name">Introduce el nombre de la web/app</string>
 
 </resources>
