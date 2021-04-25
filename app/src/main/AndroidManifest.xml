@@ -9,12 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RegaPasswordManagerFOSS">
-        <activity android:name="com.regadera.regapasswordmanagerfoss.WebData.modules.update.WebUpdateVC"></activity>
+        <activity android:name=".IndexPageVC"></activity>
+        <activity android:name=".webData.modules.update.WebUpdateVC" />
         <activity
-            android:name="com.regadera.regapasswordmanagerfoss.WebData.modules.add.WebLogsAdd"
+            android:name=".webData.modules.add.WebLogsAdd"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.regadera.regapasswordmanagerfoss.WebData.modules.list.AppLogsLists"
+            android:name=".webData.modules.list.WebLogsLists"
+            android:label="Lista de Webs"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".appData.modules.add.AppLogsAdd"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".appData.modules.list.AppLogsLists"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".LoginPageVC"

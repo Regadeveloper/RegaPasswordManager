@@ -11,4 +11,7 @@
     <string name="web_app_hint">Web/App name</string>
     <string name="empty_web_app_name">Add the name of the web/app</string>
     <string name="update_log_btn">Update</string>
+    <string name="index">Index</string>
+    <string name="app_logs">App Logins</string>
+    <string name="web_logs">Web Logins</string>
 </resources>

@@ -11,7 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.regadera.regapasswordmanagerfoss.databinding.LoginPageBinding
-import com.regadera.regapasswordmanagerfoss.AppData.modules.list.AppLogsLists
+import com.regadera.regapasswordmanagerfoss.webData.modules.list.WebLogsLists
 
 class LoginPageVC : AppCompatActivity() {
     var password = ""
@@ -62,7 +62,7 @@ class LoginPageVC : AppCompatActivity() {
             closeKeyboard(binding.root)
 
             if (password.isNotEmpty() && username.isNotEmpty()){
-                startActivity(Intent(this, AppLogsLists::class.java))
+                startActivity(Intent(this, WebLogsLists::class.java))
             }
             else{
                 if (password.isEmpty()){
