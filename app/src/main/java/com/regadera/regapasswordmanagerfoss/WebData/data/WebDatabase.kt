@@ -1,21 +1,21 @@
-package com.regadera.regapasswordmanagerfoss.data
+package com.regadera.regapasswordmanagerfoss.WebData.data
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.regadera.regapasswordmanagerfoss.model.User
+import com.regadera.regapasswordmanagerfoss.WebData.model.Web
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
-abstract class UserDatabase : RoomDatabase() {
+@Database(entities = [Web::class], version = 1, exportSchema = false)
+abstract class WebDatabase : RoomDatabase() {
 
-    abstract fun userDao() : UserDaoInterface
+    abstract fun webDao() : WebDaoInterface
 
     companion object{
         @Volatile
-        private var INSTANCE: UserDatabase? = null
+        private var INSTANCE: WebDatabase? = null
 
-        fun getDatabase (context: Context): UserDatabase{
+        fun getDatabase (context: Context): WebDatabase{
             val tempInstance = INSTANCE
             if (tempInstance != null){
                 return  tempInstance
@@ -23,8 +23,8 @@ abstract class UserDatabase : RoomDatabase() {
             synchronized(this){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    UserDatabase::class.java,
-                    "user_database"
+                    WebDatabase::class.java,
+                    "web_database"
                 ).build()
                 INSTANCE = instance
                 return instance

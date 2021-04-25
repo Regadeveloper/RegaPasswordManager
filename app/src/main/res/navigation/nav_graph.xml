@@ -12,21 +12,21 @@
         tools:layout="@layout/login_page" />
     <activity
         android:id="@+id/updateVC"
-        android:name="com.regadera.regapasswordmanagerfoss.modules.update.UpdateVC"
+        android:name="com.regadera.regapasswordmanagerfoss.WebData.modules.update.WebUpdateVC"
         android:label="logs_update"
-        tools:layout="@layout/logs_update" >
+        tools:layout="@layout/web_logs_update" >
         <argument
             android:name="currentUser"
             app:argType="com.regadera.regapasswordmanagerfoss.model.User" />
     </activity>
     <activity
         android:id="@+id/logsAdd"
-        android:name="com.regadera.regapasswordmanagerfoss.modules.add.LogsAdd"
+        android:name="com.regadera.regapasswordmanagerfoss.WebData.modules.add.WebLogsAdd"
         android:label="logs_add"
-        tools:layout="@layout/logs_add" />
+        tools:layout="@layout/web_logs_add" />
     <activity
         android:id="@+id/logsLists"
-        android:name="com.regadera.regapasswordmanagerfoss.modules.list.LogsLists"
+        android:name="com.regadera.regapasswordmanagerfoss.WebData.modules.list.AppLogsLists"
         android:label="logs_lists"
-        tools:layout="@layout/logs_lists" />
+        tools:layout="@layout/web_logs_lists" />
 </navigation>

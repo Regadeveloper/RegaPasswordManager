@@ -1,4 +1,4 @@
-package com.regadera.regapasswordmanagerfoss.modules.add
+package com.regadera.regapasswordmanagerfoss.AppData.modules.add
 
 import android.content.Context
 import android.content.Intent
@@ -11,25 +11,25 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.regadera.regapasswordmanagerfoss.R
-import com.regadera.regapasswordmanagerfoss.model.User
-import com.regadera.regapasswordmanagerfoss.viewmodel.UserViewModel
-import com.regadera.regapasswordmanagerfoss.databinding.LogsAddBinding
-import com.regadera.regapasswordmanagerfoss.modules.list.LogsLists
+import com.regadera.regapasswordmanagerfoss.AppData.model.App
+import com.regadera.regapasswordmanagerfoss.AppData.viewmodel.AppViewModel
+import com.regadera.regapasswordmanagerfoss.databinding.AppLogsAddBinding
+import com.regadera.regapasswordmanagerfoss.AppData.modules.list.AppLogsLists
 
-class LogsAdd : AppCompatActivity() {
+class AppLogsAdd : AppCompatActivity() {
 
-    private lateinit var binding: LogsAddBinding
-    private lateinit var mUserViewModel: UserViewModel
+    private lateinit var binding: AppLogsAddBinding
+    private lateinit var mAppViewModel: AppViewModel
     private var password = ""
     private var username = ""
-    private var webAppNAme = ""
+    private var appName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = LogsAddBinding.inflate(layoutInflater)
+        binding = AppLogsAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mUserViewModel = ViewModelProvider (this).get((UserViewModel::class.java))
+        mAppViewModel = ViewModelProvider (this).get((AppViewModel::class.java))
 
         binding.btnAddNewUser.setOnClickListener{
             closeKeyboard(binding.root)
@@ -73,7 +73,7 @@ class LogsAdd : AppCompatActivity() {
         binding.edtextAddWebAppName.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {
-                webAppNAme = binding.edtextAddWebAppName.text.toString()
+                appName = binding.edtextAddWebAppName.text.toString()
             }
 
             override fun beforeTextChanged(s: CharSequence, start: Int,
@@ -88,12 +88,12 @@ class LogsAdd : AppCompatActivity() {
     }
 
     private fun insertDataToDatabase(){
-        val user = User(0, username, password, webAppNAme)
-        mUserViewModel.addUser(user = user)
-        Toast.makeText(this, "Succesfully added user: ${user.userName}," +
-                " with password: ${user.mainPassword}" +
-                "  for the site: ${user.siteApp}", Toast.LENGTH_LONG).show()
-        val intent = Intent(this, LogsLists::class.java)
+        val appUser = App(0, username, password, appName)
+        mAppViewModel.addWeb(app = appUser)
+        Toast.makeText(this, "Succesfully added user: ${appUser.userName}," +
+                " with password: ${appUser.mainPassword}" +
+                "  for the site: ${appUser.appName}", Toast.LENGTH_LONG).show()
+        val intent = Intent(this, AppLogsLists::class.java)
         startActivity(intent)
     }
 
@@ -105,10 +105,10 @@ class LogsAdd : AppCompatActivity() {
         if (username.isEmpty()){
             binding.edtextAddUsername.error = getString(R.string.empty_username)
         }
-        if (webAppNAme.isEmpty()){
+        if (appName.isEmpty()){
             binding.edtextAddWebAppName.error = getString(R.string.empty_web_app_name)
         }
-        return password.isNotEmpty() && username.isNotEmpty() && webAppNAme.isNotEmpty()
+        return password.isNotEmpty() && username.isNotEmpty() && appName.isNotEmpty()
     }
 
     private fun closeKeyboard(view: View){

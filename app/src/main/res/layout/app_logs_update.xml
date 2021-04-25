@@ -1,52 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modules.add.LogsAdd">
+    android:padding="24dp">
+
 
     <Button
-        android:id="@+id/btn_add_new_user"
+        android:id="@+id/btn_update_new_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:text="@string/add_new_log"
-        android:backgroundTint="@color/purple_200"
-        app:layout_constraintBottom_toTopOf="@+id/edtext_add_username"
+        android:text="@string/update_log_btn"
+        app:layout_constraintBottom_toTopOf="@+id/edtext_update_username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edtext_add_username"
+        android:id="@+id/edtext_update_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/user_hint"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/edtext_add_password"
+        app:layout_constraintBottom_toTopOf="@+id/edtext_update_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edtext_add_web_app_name"
+        android:id="@+id/edtext_update_web_app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
         android:ems="10"
         android:hint="@string/web_app_hint"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/btn_add_new_user"
+        app:layout_constraintBottom_toTopOf="@+id/btn_update_new_user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edtext_add_password"
+        android:id="@+id/edtext_update_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
@@ -58,4 +57,3 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
