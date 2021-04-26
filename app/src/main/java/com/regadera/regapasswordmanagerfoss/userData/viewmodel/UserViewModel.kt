@@ -32,4 +32,10 @@ class UserViewModel (application: Application): AndroidViewModel(application) {
             repository.updateUser(user)
         }
     }
+
+    fun getCurrentUser (user: User){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.getCurrentUser(user)
+        }
+    }
 }

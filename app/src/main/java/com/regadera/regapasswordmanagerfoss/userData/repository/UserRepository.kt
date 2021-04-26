@@ -8,6 +8,7 @@ import com.regadera.regapasswordmanagerfoss.userData.model.User
 class UserRepository (private val userDao : UserDaoInterface) {
 
     val readData: LiveData<List<User>> = userDao.readUserData()
+    
 
     suspend fun addUser (user: User){
         userDao.addUser(user)
@@ -16,4 +17,12 @@ class UserRepository (private val userDao : UserDaoInterface) {
     suspend fun updateUser (user: User){
         userDao.updateUser(user)
     }
+
+    fun getCurrentUser (user: User){
+         userDao.getUser(userName = user.userName, password = user.mainPassword)
+    }
+
+
+
+
 }

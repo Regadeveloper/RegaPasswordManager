@@ -14,7 +14,7 @@ class AppListAdapter: RecyclerView.Adapter<AppListAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){}
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder{
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.web_custom_row, parent, false))
+        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.app_custom_row, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -23,14 +23,14 @@ class AppListAdapter: RecyclerView.Adapter<AppListAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = appList[position]
-        holder.itemView.text_webname.text = currentItem.appName.toString()
-        holder.itemView.text_username.text = currentItem.userName.toString()
-        holder.itemView.text_password.text = currentItem.mainPassword.toString()
+        holder.itemView.text_appName.text = currentItem.appName
+        holder.itemView.text_username.text = currentItem.userName
+        holder.itemView.text_password.text = currentItem.mainPassword
 
     }
 
-    fun setData (web: List<App>){
-        this.appList = web
+    fun setData (app: List<App>){
+        this.appList = app
         notifyDataSetChanged()
     }
 }

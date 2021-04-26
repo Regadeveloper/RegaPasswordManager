@@ -88,7 +88,7 @@ class AppLogsAdd : AppCompatActivity() {
     }
 
     private fun insertDataToDatabase(){
-        val appUser = App(username, password, appName)
+        val appUser = App(username, password, appName, "pepe")
         mAppViewModel.addWeb(app = appUser)
         Toast.makeText(this, "Succesfully added user: ${appUser.userName}," +
                 " with password: ${appUser.mainPassword}" +

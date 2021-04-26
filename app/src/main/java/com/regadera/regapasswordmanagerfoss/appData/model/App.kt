@@ -12,5 +12,6 @@ data class App (
         @PrimaryKey(autoGenerate = false)
         val userName: String,
         val mainPassword: String,
-        val appName : String
-    ) : Parcelable
+        val appName : String,
+        val ownerUser : String
+) : Parcelable

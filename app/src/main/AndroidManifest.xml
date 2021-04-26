@@ -14,6 +14,7 @@
         <activity android:name=".webData.modules.update.WebUpdateVC" />
         <activity
             android:name=".webData.modules.add.WebLogsAdd"
+            android:label="Web"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".webData.modules.list.WebLogsLists"
@@ -21,6 +22,7 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".appData.modules.add.AppLogsAdd"
+            android:label="App"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".appData.modules.list.AppLogsLists"

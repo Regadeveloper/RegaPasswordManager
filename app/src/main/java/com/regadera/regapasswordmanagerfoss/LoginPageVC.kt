@@ -15,7 +15,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.regadera.regapasswordmanagerfoss.databinding.LoginPageBinding
 import com.regadera.regapasswordmanagerfoss.userData.model.User
 import com.regadera.regapasswordmanagerfoss.userData.viewmodel.UserViewModel
-import com.regadera.regapasswordmanagerfoss.webData.viewmodel.WebViewModel
 
 class LoginPageVC : AppCompatActivity() {
     var password = ""
@@ -85,9 +84,8 @@ class LoginPageVC : AppCompatActivity() {
 
     private fun insertDataToDatabase(){
         val user = User( username, password)
-        mUserViewModel.addUser(user = user)
-        Toast.makeText(this, "Succesfully added user: ${user.userName}," +
-                " with password: ${user.mainPassword}", Toast.LENGTH_LONG).show()
+        //mUserViewModel.addUser(user = user)
+        val fakeUser = mUserViewModel.getCurrentUser(user = user)
         val intent = Intent(this, IndexPageVC::class.java)
         startActivity(intent)
     }

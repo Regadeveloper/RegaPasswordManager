@@ -6,7 +6,7 @@ import com.regadera.regapasswordmanagerfoss.userData.model.User
 
 @Dao
 interface UserDaoInterface {
-    
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addUser (user: User)
 
@@ -15,4 +15,7 @@ interface UserDaoInterface {
 
     @Query("SELECT * FROM user_table ORDER BY userName ASC")
     fun readUserData() : LiveData<List<User>>
+
+    @Query("SELECT * FROM user_table WHERE userName = :userName AND mainPassword = :password")
+    fun getUser(userName: String, password: String) : LiveData<List<User>>
 }

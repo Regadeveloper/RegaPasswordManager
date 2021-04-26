@@ -12,5 +12,6 @@ data class Web (
         @PrimaryKey(autoGenerate = false)
         val userName: String,
         val mainPassword: String,
-        val website : String
+        val website : String,
+        val ownerUser : String
     ) : Parcelable
