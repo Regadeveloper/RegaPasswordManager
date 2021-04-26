@@ -19,7 +19,7 @@ import com.regadera.regapasswordmanagerfoss.webData.modules.list.WebLogsLists
 class WebLogsAdd : AppCompatActivity() {
 
     private lateinit var binding: WebLogsAddBinding
-    private lateinit var mAppViewModel: WebViewModel
+    private lateinit var mWebViewModel: WebViewModel
     private var password = ""
     private var username = ""
     private var webName = ""
@@ -29,7 +29,7 @@ class WebLogsAdd : AppCompatActivity() {
         binding = WebLogsAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mAppViewModel = ViewModelProvider (this).get((WebViewModel::class.java))
+        mWebViewModel = ViewModelProvider (this).get((WebViewModel::class.java))
 
         binding.btnAddNewWebUser.setOnClickListener{
             closeKeyboard(binding.root)
@@ -88,8 +88,8 @@ class WebLogsAdd : AppCompatActivity() {
     }
 
     private fun insertDataToDatabase(){
-        val webUser = Web(0, username, password, webName)
-        mAppViewModel.addWeb(web = webUser)
+        val webUser = Web( username, password, webName)
+        mWebViewModel.addWeb(web = webUser)
         Toast.makeText(this, "Succesfully added user: ${webUser.userName}," +
                 " with password: ${webUser.mainPassword}" +
                 "  for the site: ${webUser.website}", Toast.LENGTH_LONG).show()

@@ -9,23 +9,31 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.regadera.regapasswordmanagerfoss.databinding.LoginPageBinding
-import com.regadera.regapasswordmanagerfoss.webData.modules.list.WebLogsLists
+import com.regadera.regapasswordmanagerfoss.userData.model.User
+import com.regadera.regapasswordmanagerfoss.userData.viewmodel.UserViewModel
+import com.regadera.regapasswordmanagerfoss.webData.viewmodel.WebViewModel
 
 class LoginPageVC : AppCompatActivity() {
     var password = ""
     var username = ""
     private lateinit var binding: LoginPageBinding
+    private lateinit var mUserViewModel: UserViewModel
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = LoginPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val loginButton: Button = findViewById<Button>(R.id.btnLogin)
-        var eUsername = findViewById<EditText>(R.id.etUsername)
-        var ePassword = findViewById<EditText>(R.id.etPassword)
+        val loginButton: Button = binding.btnLogin
+        var eUsername = binding.etUsername
+        var ePassword = binding.etPassword
+        mUserViewModel = ViewModelProvider (this).get((UserViewModel::class.java))
+
 
         eUsername.addTextChangedListener(object : TextWatcher {
 
@@ -57,12 +65,11 @@ class LoginPageVC : AppCompatActivity() {
             }
         })
 
-
         loginButton.setOnClickListener(){
             closeKeyboard(binding.root)
 
             if (password.isNotEmpty() && username.isNotEmpty()){
-                startActivity(Intent(this, WebLogsLists::class.java))
+                insertDataToDatabase()
             }
             else{
                 if (password.isEmpty()){
@@ -74,6 +81,15 @@ class LoginPageVC : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun insertDataToDatabase(){
+        val user = User( username, password)
+        mUserViewModel.addUser(user = user)
+        Toast.makeText(this, "Succesfully added user: ${user.userName}," +
+                " with password: ${user.mainPassword}", Toast.LENGTH_LONG).show()
+        val intent = Intent(this, IndexPageVC::class.java)
+        startActivity(intent)
     }
 
     private fun closeKeyboard(view: View){

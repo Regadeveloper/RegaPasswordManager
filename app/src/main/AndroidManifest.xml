@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RegaPasswordManagerFOSS">
-        <activity android:name=".IndexPageVC"></activity>
+        <activity android:name=".IndexPageVC"
+            android:label="Menú"/>
         <activity android:name=".webData.modules.update.WebUpdateVC" />
         <activity
             android:name=".webData.modules.add.WebLogsAdd"
@@ -23,6 +24,7 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".appData.modules.list.AppLogsLists"
+            android:label="Lista de Apps"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".LoginPageVC"

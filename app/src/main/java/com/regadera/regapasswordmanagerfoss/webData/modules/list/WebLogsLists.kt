@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.regadera.regapasswordmanagerfoss.webData.viewmodel.WebViewModel
 import com.regadera.regapasswordmanagerfoss.databinding.WebLogsListsBinding
@@ -26,6 +27,7 @@ class WebLogsLists : AppCompatActivity() {
         val recyclerView = binding.recyclerViewWeb
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL ))
 
         //ViewModel
         mAppViewModel = ViewModelProvider(this).get((WebViewModel::class.java))

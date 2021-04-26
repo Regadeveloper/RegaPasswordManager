@@ -13,6 +13,6 @@ interface AppDaoInterface {
     @Update
     suspend fun updateApp(app: App)
 
-    @Query("SELECT * FROM app_table ORDER BY id ASC")
+    @Query("SELECT * FROM app_table ORDER BY appName ASC")
     fun readAppData() : LiveData<List<App>>
 }

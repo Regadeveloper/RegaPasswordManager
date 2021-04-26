@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.regadera.regapasswordmanagerfoss.appData.viewmodel.AppViewModel
 import com.regadera.regapasswordmanagerfoss.databinding.AppLogsListsBinding
@@ -26,6 +27,7 @@ class AppLogsLists : AppCompatActivity() {
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL ))
 
         //ViewModel
         mAppViewModel = ViewModelProvider(this).get((AppViewModel::class.java))

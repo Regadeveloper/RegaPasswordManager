@@ -13,6 +13,6 @@ interface WebDaoInterface {
     @Update
     suspend fun updateWeb(web: Web)
 
-    @Query("SELECT * FROM web_table ORDER BY id ASC")
+    @Query("SELECT * FROM web_table ORDER BY website ASC")
     fun readWebData() : LiveData<List<Web>>
 }

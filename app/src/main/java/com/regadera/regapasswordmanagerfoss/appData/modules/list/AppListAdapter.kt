@@ -23,7 +23,6 @@ class AppListAdapter: RecyclerView.Adapter<AppListAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = appList[position]
-        holder.itemView.id_txt.text = currentItem.id.toString()
         holder.itemView.text_webname.text = currentItem.appName.toString()
         holder.itemView.text_username.text = currentItem.userName.toString()
         holder.itemView.text_password.text = currentItem.mainPassword.toString()

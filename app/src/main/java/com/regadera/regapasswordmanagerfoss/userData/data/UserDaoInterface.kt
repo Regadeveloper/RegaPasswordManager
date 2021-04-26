@@ -13,6 +13,6 @@ interface UserDaoInterface {
     @Update
     suspend fun updateUser(user: User)
 
-    @Query("SELECT * FROM user_table ORDER BY id ASC")
+    @Query("SELECT * FROM user_table ORDER BY userName ASC")
     fun readUserData() : LiveData<List<User>>
 }
