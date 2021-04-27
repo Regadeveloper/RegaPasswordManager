@@ -14,6 +14,7 @@ import com.regadera.regapasswordmanagerfoss.R
 import com.regadera.regapasswordmanagerfoss.webData.model.Web
 import com.regadera.regapasswordmanagerfoss.webData.viewmodel.WebViewModel
 import com.regadera.regapasswordmanagerfoss.databinding.WebLogsAddBinding
+import com.regadera.regapasswordmanagerfoss.globals.MyGlobals
 import com.regadera.regapasswordmanagerfoss.webData.modules.list.WebLogsLists
 
 class WebLogsAdd : AppCompatActivity() {
@@ -88,11 +89,12 @@ class WebLogsAdd : AppCompatActivity() {
     }
 
     private fun insertDataToDatabase(){
-        val webUser = Web( username, password, webName, "pepe")
+        val webUser = Web( username, password, webName, MyGlobals.currentUserName)
         mWebViewModel.addWeb(web = webUser)
         Toast.makeText(this, "Succesfully added user: ${webUser.userName}," +
                 " with password: ${webUser.mainPassword}" +
-                "  for the site: ${webUser.website}", Toast.LENGTH_LONG).show()
+                "  for the site: ${webUser.website}"+
+                " for the user: ${webUser.ownerUser}", Toast.LENGTH_LONG).show()
         val intent = Intent(this, WebLogsLists::class.java)
         startActivity(intent)
     }

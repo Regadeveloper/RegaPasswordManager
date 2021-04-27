@@ -5,14 +5,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.room.ColumnInfo
 import com.regadera.regapasswordmanagerfoss.databinding.LoginPageBinding
+import com.regadera.regapasswordmanagerfoss.globals.MyGlobals
 import com.regadera.regapasswordmanagerfoss.userData.model.User
 import com.regadera.regapasswordmanagerfoss.userData.viewmodel.UserViewModel
 
@@ -84,10 +88,19 @@ class LoginPageVC : AppCompatActivity() {
 
     private fun insertDataToDatabase(){
         val user = User( username, password)
-        mUserViewModel.addUser(user = user)
-        Toast.makeText(this, mUserViewModel.getCurrentUser(user = user).toString(), Toast.LENGTH_LONG )
-        //val intent = Intent(this, IndexPageVC::class.java)
-        //startActivity(intent)
+        mUserViewModel.getCurrentUser(username, password)
+        var intent= Intent(this, IndexPageVC::class.java)
+        if (mUserViewModel.currentUser.value?.userName == null){
+            mUserViewModel.addUser(user = user)
+            Toast.makeText(this, "${getText(R.string.added_user)} ${username}", Toast.LENGTH_LONG).show()
+            MyGlobals.currentUserName = username
+            startActivity(intent)
+        }
+        else{
+            Toast.makeText(this, "${getText(R.string.log_as_user)} ${mUserViewModel.currentUser.value?.userName}", Toast.LENGTH_LONG).show()
+            MyGlobals.currentUserName = username
+            startActivity(intent)
+        }
     }
 
     private fun closeKeyboard(view: View){

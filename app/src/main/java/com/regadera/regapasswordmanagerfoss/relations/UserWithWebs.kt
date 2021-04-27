@@ -12,5 +12,4 @@ data class UserWithWebs (
                 entityColumn =  "ownerUser"
         )
         val webs: List<Web>
-
 )

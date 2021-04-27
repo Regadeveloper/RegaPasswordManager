@@ -1,19 +1,24 @@
 package com.regadera.regapasswordmanagerfoss.userData.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.regadera.regapasswordmanagerfoss.userData.data.UserDatabase
 import com.regadera.regapasswordmanagerfoss.userData.repository.UserRepository
 import com.regadera.regapasswordmanagerfoss.userData.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.lang.Error
 
 class UserViewModel (application: Application): AndroidViewModel(application) {
 
     private val readData: LiveData<List<User>>
     private val repository: UserRepository
+    val currentUser = MutableLiveData<User?>()
+
 
     init {
         val userDao = UserDatabase.getDatabase(application).userDao()
@@ -33,9 +38,9 @@ class UserViewModel (application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun getCurrentUser (user: User){
+    fun getCurrentUser (userName : String, password : String){
         viewModelScope.launch(Dispatchers.IO){
-            repository.getCurrentUser(user)
+            currentUser.postValue(repository.getCurrentUser(userName, password))
         }
     }
 }

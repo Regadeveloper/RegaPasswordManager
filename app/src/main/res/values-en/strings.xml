@@ -14,4 +14,6 @@
     <string name="index">Index</string>
     <string name="app_logs">App Logins</string>
     <string name="web_logs">Web Logins</string>
+    <string name="added_user">"Added new user: "</string>
+    <string name="log_as_user">"Logged in as: "</string>
 </resources>

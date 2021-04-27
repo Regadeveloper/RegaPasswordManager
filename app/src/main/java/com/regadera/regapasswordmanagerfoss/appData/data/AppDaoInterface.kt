@@ -3,6 +3,7 @@ package com.regadera.regapasswordmanagerfoss.appData.data
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.regadera.regapasswordmanagerfoss.appData.model.App
+import com.regadera.regapasswordmanagerfoss.relations.UserWithApps
 
 @Dao
 interface AppDaoInterface {
@@ -15,4 +16,8 @@ interface AppDaoInterface {
 
     @Query("SELECT * FROM app_table ORDER BY appName ASC")
     fun readAppData() : LiveData<List<App>>
+
+    @Transaction
+    @Query("SELECT * FROM app_table WHERE ownerUser LIKE :userName")
+    suspend fun getUserWithApps(userName: String): List<UserWithApps>
 }

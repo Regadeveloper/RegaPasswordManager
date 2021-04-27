@@ -14,5 +14,7 @@
     <string name="index">Índice</string>
     <string name="app_logs">Cuentas en Apps</string>
     <string name="web_logs">Cuentas en Webs</string>
+    <string name="added_user">Añadido nuevo usuario:</string>
+    <string name="log_as_user">Iniciado sesión como:</string>
 
 </resources>

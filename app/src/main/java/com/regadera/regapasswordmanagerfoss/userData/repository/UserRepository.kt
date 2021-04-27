@@ -18,8 +18,8 @@ class UserRepository (private val userDao : UserDaoInterface) {
         userDao.updateUser(user)
     }
 
-    fun getCurrentUser (user: User){
-         userDao.getUser(userName = user.userName, password = user.mainPassword)
+    suspend fun getCurrentUser (userName : String, password: String): User?{
+         return userDao.getUser(userName, password )
     }
 
 

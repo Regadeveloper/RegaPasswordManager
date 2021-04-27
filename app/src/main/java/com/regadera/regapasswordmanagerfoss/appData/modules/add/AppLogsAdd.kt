@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -15,6 +16,7 @@ import com.regadera.regapasswordmanagerfoss.appData.model.App
 import com.regadera.regapasswordmanagerfoss.appData.viewmodel.AppViewModel
 import com.regadera.regapasswordmanagerfoss.databinding.AppLogsAddBinding
 import com.regadera.regapasswordmanagerfoss.appData.modules.list.AppLogsLists
+import com.regadera.regapasswordmanagerfoss.globals.MyGlobals
 
 class AppLogsAdd : AppCompatActivity() {
 
@@ -88,11 +90,12 @@ class AppLogsAdd : AppCompatActivity() {
     }
 
     private fun insertDataToDatabase(){
-        val appUser = App(username, password, appName, "pepe")
+        val appUser = App(username, password, appName, MyGlobals.currentUserName)
         mAppViewModel.addWeb(app = appUser)
         Toast.makeText(this, "Succesfully added user: ${appUser.userName}," +
                 " with password: ${appUser.mainPassword}" +
-                "  for the site: ${appUser.appName}", Toast.LENGTH_LONG).show()
+                "  for the site: ${appUser.appName}"+
+                " for the user: ${appUser.ownerUser}", Toast.LENGTH_LONG).show()
         val intent = Intent(this, AppLogsLists::class.java)
         startActivity(intent)
     }
