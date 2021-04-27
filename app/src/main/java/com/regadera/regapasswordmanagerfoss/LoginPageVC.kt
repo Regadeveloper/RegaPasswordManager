@@ -84,10 +84,10 @@ class LoginPageVC : AppCompatActivity() {
 
     private fun insertDataToDatabase(){
         val user = User( username, password)
-        //mUserViewModel.addUser(user = user)
-        val fakeUser = mUserViewModel.getCurrentUser(user = user)
-        val intent = Intent(this, IndexPageVC::class.java)
-        startActivity(intent)
+        mUserViewModel.addUser(user = user)
+        Toast.makeText(this, mUserViewModel.getCurrentUser(user = user).toString(), Toast.LENGTH_LONG )
+        //val intent = Intent(this, IndexPageVC::class.java)
+        //startActivity(intent)
     }
 
     private fun closeKeyboard(view: View){
