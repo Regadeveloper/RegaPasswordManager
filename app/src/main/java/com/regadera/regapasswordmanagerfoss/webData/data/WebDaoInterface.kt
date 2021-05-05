@@ -18,6 +18,6 @@ interface WebDaoInterface {
     fun readWebData() : LiveData<List<Web>>
 
     @Transaction
-    @Query("SELECT * FROM web_table WHERE ownerUser LIKE :userName")
-    suspend fun getUserWithWebs(userName: String): List<UserWithWebs>
+    @Query("SELECT * FROM web_table")
+    fun getUserWithWebs(): LiveData<List<UserWithWebs?>>
 }

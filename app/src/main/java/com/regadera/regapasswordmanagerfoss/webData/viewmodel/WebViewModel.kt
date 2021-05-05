@@ -19,13 +19,14 @@ class WebViewModel (application: Application): AndroidViewModel(application) {
 
     val readData: LiveData<List<Web>>
     private val repository: WebRepository
-    val userWithWebs = MutableLiveData<List<UserWithWebs?>>()
+    val userWithWebs: LiveData<List<UserWithWebs?>>
 
 
     init {
         val userDao = WebDatabase.getDatabase(application).webDao()
         repository = WebRepository(userDao)
         readData = repository.readData
+        userWithWebs = repository.getRelation
     }
 
     fun addWeb (web: Web){
@@ -40,9 +41,9 @@ class WebViewModel (application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun getUserWithWebs (ownerUser: String){
+    /*fun getUserWithWebs (ownerUser: String){
         viewModelScope.launch(Dispatchers.IO){
             userWithWebs.postValue(repository.getUserWithWebs(ownerUser))
         }
-    }
+    } */
 }

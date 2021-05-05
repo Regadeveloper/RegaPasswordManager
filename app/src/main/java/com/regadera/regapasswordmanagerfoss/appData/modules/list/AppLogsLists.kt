@@ -31,7 +31,7 @@ class AppLogsLists : AppCompatActivity() {
 
         //ViewModel
         mAppViewModel = ViewModelProvider(this).get((AppViewModel::class.java))
-        mAppViewModel.readData.observe(this, Observer { user ->
+        mAppViewModel.readData.observe(this, { user ->
             adapter.setData(user)
         })
 
