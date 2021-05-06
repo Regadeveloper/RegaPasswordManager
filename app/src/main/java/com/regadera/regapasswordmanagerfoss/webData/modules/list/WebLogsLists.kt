@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.regadera.regapasswordmanagerfoss.webData.viewmodel.WebViewModel
 import com.regadera.regapasswordmanagerfoss.databinding.WebLogsListsBinding
+import com.regadera.regapasswordmanagerfoss.globals.MyGlobals
 import com.regadera.regapasswordmanagerfoss.webData.modules.add.WebLogsAdd
 
 
@@ -30,9 +31,10 @@ class WebLogsLists : AppCompatActivity() {
 
         //ViewModel
         mWebViewModel = ViewModelProvider(this).get((WebViewModel::class.java))
-        mWebViewModel.userWithWebs.observe(this, { user ->
-            adapter.setData(user)
+        mWebViewModel.userWithWebs.observe(this, { userWithWebs->
+            adapter.setData(userWithWebs[].webs)
         })
+        mWebViewModel.getUserWithWebs(MyGlobals.currentUserName)
 
 
         binding.floatBtnAddWeb.setOnClickListener{
