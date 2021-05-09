@@ -87,11 +87,11 @@ class LoginPageVC : AppCompatActivity() {
     }
 
     private fun insertDataToDatabase(){
-        val user = User( username, password)
+        var user = User( username, password)
         mUserViewModel.getCurrentUser(username, password)
         var intent= Intent(this, IndexPageVC::class.java)
         if (mUserViewModel.currentUser.value?.userName == null){
-            mUserViewModel.addUser(user = user)
+            mUserViewModel.addUser(user)
             Toast.makeText(this, "${getText(R.string.added_user)} ${username}", Toast.LENGTH_LONG).show()
             MyGlobals.currentUserName = username
             startActivity(intent)

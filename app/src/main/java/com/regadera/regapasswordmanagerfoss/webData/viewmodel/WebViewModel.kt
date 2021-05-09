@@ -17,13 +17,11 @@ class WebViewModel (application: Application): AndroidViewModel(application) {
 
     val readData: LiveData<List<Web>>
     private val repository: WebRepository
-    var userWithWebs: LiveData<List<UserWithWebs?>>
 
     init {
         val userDao = UnifiedDatabase.getInstance(application).webDao
         repository = WebRepository(userDao)
         readData = repository.readData
-        userWithWebs = repository.userWithWebs
     }
 
     fun addWeb (web: Web){
@@ -38,13 +36,5 @@ class WebViewModel (application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun getUserWithWebs (ownerUser: String){
-        Log.i("getUserWithWebs", "getUserWithWebs: ${userWithWebs.value}")
-        Log.i("Global","El nombre global es ${MyGlobals.currentUserName}")
-        viewModelScope.launch(Dispatchers.IO){
-            userWithWebs = repository.getUserWithWebs(ownerUser)
-            Log.i("getUserWitgWebs2", "getUserWithWebs: ${userWithWebs.value}")
-        }
-    }
 }
 
