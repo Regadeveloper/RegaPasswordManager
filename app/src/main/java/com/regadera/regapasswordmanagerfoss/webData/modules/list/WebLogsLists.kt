@@ -32,7 +32,9 @@ class WebLogsLists : AppCompatActivity() {
         //ViewModel
         mWebViewModel = ViewModelProvider(this).get((WebViewModel::class.java))
         mWebViewModel.userWithWebs.observe(this, { userWithWebs->
-            adapter.setData(userWithWebs[].webs)
+            if (userWithWebs.isNotEmpty()){
+                userWithWebs.first()?.let { adapter.setData(it.webs) }
+            }
         })
         mWebViewModel.getUserWithWebs(MyGlobals.currentUserName)
 
