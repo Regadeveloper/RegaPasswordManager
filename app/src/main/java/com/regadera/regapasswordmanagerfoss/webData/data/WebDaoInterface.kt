@@ -17,7 +17,4 @@ interface WebDaoInterface {
     @Query("SELECT * FROM web_table ORDER BY website ASC")
     fun readWebData() : LiveData<List<Web>>
 
-    @Transaction
-    @Query("SELECT * FROM web_table WHERE ownerUser LIKE :username")
-    fun getUserWithWebs(username: String): LiveData<List<UserWithWebs?>>
 }

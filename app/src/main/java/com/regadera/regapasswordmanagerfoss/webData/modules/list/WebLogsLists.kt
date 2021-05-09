@@ -10,13 +10,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.regadera.regapasswordmanagerfoss.webData.viewmodel.WebViewModel
 import com.regadera.regapasswordmanagerfoss.databinding.WebLogsListsBinding
 import com.regadera.regapasswordmanagerfoss.globals.MyGlobals
+import com.regadera.regapasswordmanagerfoss.userData.viewmodel.UserViewModel
 import com.regadera.regapasswordmanagerfoss.webData.modules.add.WebLogsAdd
 
 
 class WebLogsLists : AppCompatActivity() {
 
     private lateinit var binding: WebLogsListsBinding
-    private lateinit var mWebViewModel: WebViewModel
+    private lateinit var mUserViewModel: UserViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,14 +33,14 @@ class WebLogsLists : AppCompatActivity() {
         recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL ))
 
         //ViewModel
-        mWebViewModel = ViewModelProvider(this).get((WebViewModel::class.java))
-        Log.i("USERWITHWEBSLIST", "${mWebViewModel.userWithWebs.value}")
-        mWebViewModel.userWithWebs.observe(this, { userWithWebs->
+        mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+
+        mUserViewModel.userWithWebs.observe(this, { userWithWebs->
+            Log.i("UserQuery", "El valor de userWithWebs es $userWithWebs")
             if (userWithWebs.isNotEmpty()){
                 userWithWebs.first()?.let { adapter.setData(it.webs) }
             }
         })
-        mWebViewModel.getUserWithWebs(MyGlobals.currentUserName)
 
 
         binding.floatBtnAddWeb.setOnClickListener{
