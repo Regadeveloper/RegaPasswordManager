@@ -3,6 +3,7 @@ package com.regadera.regapasswordmanagerfoss.webData.modules.list
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,6 +32,7 @@ class WebLogsLists : AppCompatActivity() {
 
         //ViewModel
         mWebViewModel = ViewModelProvider(this).get((WebViewModel::class.java))
+        Log.i("USERWITHWEBSLIST", "${mWebViewModel.userWithWebs.value}")
         mWebViewModel.userWithWebs.observe(this, { userWithWebs->
             if (userWithWebs.isNotEmpty()){
                 userWithWebs.first()?.let { adapter.setData(it.webs) }

@@ -1,6 +1,7 @@
 package com.regadera.regapasswordmanagerfoss.webData.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -19,12 +20,13 @@ class WebViewModel (application: Application): AndroidViewModel(application) {
 
     val readData: LiveData<List<Web>>
     private val repository: WebRepository
-    lateinit var userWithWebs: MutableLiveData<List<UserWithWebs?>>
+    var userWithWebs: LiveData<List<UserWithWebs?>>
 
     init {
         val userDao = WebDatabase.getDatabase(application).webDao()
         repository = WebRepository(userDao)
         readData = repository.readData
+        userWithWebs = repository.userWithWebs
     }
 
     fun addWeb (web: Web){
@@ -40,8 +42,12 @@ class WebViewModel (application: Application): AndroidViewModel(application) {
     }
 
     fun getUserWithWebs (ownerUser: String){
+        Log.i("getUserWithWebs", "getUserWithWebs: ${userWithWebs.value}")
+        Log.i("Global","El nombre global es ${MyGlobals.currentUserName}")
         viewModelScope.launch(Dispatchers.IO){
-            userWithWebs.postValue(repository.getUserWithWebs(ownerUser))
+            userWithWebs = repository.getUserWithWebs(ownerUser)
+            Log.i("getUserWitgWebs2", "getUserWithWebs: ${userWithWebs.value}")
         }
     }
 }
+
