@@ -4,14 +4,11 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.regadera.regapasswordmanagerfoss.database.UnifiedDatabase
 import com.regadera.regapasswordmanagerfoss.globals.MyGlobals
-import com.regadera.regapasswordmanagerfoss.relations.UserWithApps
 import com.regadera.regapasswordmanagerfoss.relations.UserWithWebs
-import com.regadera.regapasswordmanagerfoss.userData.model.User
 import com.regadera.regapasswordmanagerfoss.webData.model.Web
-import com.regadera.regapasswordmanagerfoss.webData.data.WebDatabase
 import com.regadera.regapasswordmanagerfoss.webData.repository.WebRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,7 +20,7 @@ class WebViewModel (application: Application): AndroidViewModel(application) {
     var userWithWebs: LiveData<List<UserWithWebs?>>
 
     init {
-        val userDao = WebDatabase.getDatabase(application).webDao()
+        val userDao = UnifiedDatabase.getInstance(application).webDao
         repository = WebRepository(userDao)
         readData = repository.readData
         userWithWebs = repository.userWithWebs
