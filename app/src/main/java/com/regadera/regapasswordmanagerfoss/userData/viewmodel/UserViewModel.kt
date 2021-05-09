@@ -6,7 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.regadera.regapasswordmanagerfoss.userData.data.UserDatabase
+import com.regadera.regapasswordmanagerfoss.database.UnifiedDatabase
 import com.regadera.regapasswordmanagerfoss.userData.repository.UserRepository
 import com.regadera.regapasswordmanagerfoss.userData.model.User
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +21,7 @@ class UserViewModel (application: Application): AndroidViewModel(application) {
 
 
     init {
-        val userDao = UserDatabase.getDatabase(application).userDao()
+        val userDao = UnifiedDatabase.getInstance(application).userDao
         repository = UserRepository(userDao)
         readData = repository.readData
     }

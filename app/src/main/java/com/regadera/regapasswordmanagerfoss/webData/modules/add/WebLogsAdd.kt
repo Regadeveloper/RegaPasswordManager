@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -95,6 +96,7 @@ class WebLogsAdd : AppCompatActivity() {
                 " with password: ${webUser.mainPassword}" +
                 "  for the site: ${webUser.website}"+
                 " for the user: ${webUser.ownerUser}", Toast.LENGTH_LONG).show()
+        Log.i("newAddWeb", "El owner user es ${webUser.ownerUser}")
         val intent = Intent(this, WebLogsLists::class.java)
         startActivity(intent)
     }
